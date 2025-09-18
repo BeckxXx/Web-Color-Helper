@@ -18,7 +18,10 @@ Es enthält zwei Tabs:
 
 1. Einfach die Dateien im Browser öffnen (kein Server erforderlich)  
 2. Farbpunkte oder Bilder auswählen  
-3. Farbwerte per Klick kopieren  
+3. Farbwerte per Klick kopieren
+
+## DEMO
+Demo verfügbar unter https://dev.stefan-lehmann.eu/colorhelper/
 
 ## Technologien
 
@@ -37,3 +40,4 @@ Dieses Projekt ist lizenziert unter der MIT-Lizenz. Details siehe LICENSE Datei.
 
 
 Bei Fragen melden Sie sich gerne via E-Mail oder Issues auf GitHub.
+
