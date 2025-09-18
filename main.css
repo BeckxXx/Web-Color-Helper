@@ -1,0 +1,343 @@
+/* Reset & Grundlagen */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Saira Extra Condensed', Arial, sans-serif;
+  background: #cce8ed;
+  min-height: 100vh;
+}
+body > main {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: auto;
+}
+
+/* Header */
+.page-header {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-weight: 700;
+  font-size: clamp(24px, 6vw, 24px);
+  letter-spacing: 2px;
+  user-select: none;
+  z-index: 1000;
+}
+.page-header h1 {
+  color: #fff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+.color-scale-left h2 {
+  color: #000;
+  text-shadow: 0 0 8px rgba(128, 128, 128, 0.9);
+}
+
+/* Footer */
+.page-footer {
+  flex-shrink: 0;
+  width: 100%;
+  padding: 1em 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  text-align: center;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.5);
+  color: white;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  user-select: none;
+}
+
+/* Tabs */
+.tabs {
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+}
+.tab-nav {
+  display: flex;
+  border-bottom: 2px solid #333;
+  margin-bottom: 1em;
+}
+.tab-link {
+  background: transparent;
+  border: none;
+  padding: 1em 2em;
+  cursor: pointer;
+  font-weight: 700;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  flex: 1;
+  text-align: center;
+  user-select: none;
+}
+.tab-link.active {
+  background-color: #005a87;
+}
+.tab-contents-container {
+  width: 100vw;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0 1em;
+}
+.tab-content {
+  width: 100%;
+  box-sizing: border-box;
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+
+/* Farbpicker Container (Tab 1) */
+.picker-container {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 1em;
+  user-select: none;
+}
+
+/* Input Felder */
+#inputStart,
+#inputEnd {
+  width: 120px;
+  margin-top: 0.4em;
+  text-align: center;
+  font-weight: 700;
+  font-family: monospace;
+  font-size: 1rem;
+  padding: 0.2em 0;
+  color: #444;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Beispiel Button */
+.sample-btn-container {
+  text-align: center;
+}
+#sample {
+  margin-top: 1em;
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(120deg, #ff6a00, #ee0979);
+  color: white;
+  padding: 0.5em 1.5em;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 8px rgba(238, 9, 121, 0.4);
+  transition: background 0.3s ease;
+  user-select: none;
+}
+.sample {
+  margin-top: 1em;
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(120deg, #ff6a00, #ee0979);
+  color: white;
+  padding: 0.5em 1.5em;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 8px rgba(238, 9, 121, 0.4);
+  transition: background 0.3s ease;
+  user-select: none;
+}
+#sample:hover {
+  background: linear-gradient(120deg, #ee0979, #ff6a00);
+}
+
+/* Anzeige Farbskalen und Farbkacheln */
+.colorBar.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25em;
+  margin-top: 0.5em;
+}
+.colorBox {
+  display: inline-block;
+  padding: 0.2em 0.6em;
+  border-radius: 4px;
+  font-weight: 700;
+  user-select: none;
+  min-width: 50px;
+  text-align: center;
+  cursor: pointer;
+  color: white; /* Standard weißer Text */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.colorBar.oklch,
+.colorBar.normal {
+  width: 100%;
+  height: 24px;
+  border-radius: 6px;
+  margin-top: 0.5em;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Bild Upload Bereich */
+.image-upload {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* optional, vertikal zentrieren */
+  margin-bottom: 1em; /* optional Abstand */
+}
+.upload-button {
+  display: inline-block;
+  padding: 0.75em 1.5em;
+  background: linear-gradient(135deg, #1e90ff, #0066cc);
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.1rem;
+  user-select: none;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(30, 144, 255, 0.5);
+  transition: background 0.3s ease;
+  margin-bottom: 1em;
+}
+.upload-button:hover {
+  background: linear-gradient(135deg, #0066cc, #004a99);
+}
+
+/* Bildanzeige Container */
+.image-scaler-container {
+  display: flex;
+  gap: 1.5em;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+.image-container {
+  position: relative;
+  width: 50%;
+  height: 600px;
+  overflow: hidden;
+  filter: none;
+  transition: filter 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+#image-canvas {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+}
+
+/* Farbinfo Bereiche */
+.color-info {
+  text-shadow: 0 0 8px rgba(128, 128, 128, 0.9);
+  width: 50%;
+  max-width: none;
+  color: #000;
+  background-color: rgba(240, 240, 240, 0.5);
+  padding: 0.2em 0.6em;
+  border-radius: 8px;
+  overflow-y: auto;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.5);
+}
+#hover-color {
+  display: inline-block;
+  padding: 0.2em 0.6em;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: 700;
+  user-select: none;
+}
+#hover-color[data-color] {
+  background-color: var(--hover-color);
+}
+#hover-color, #clicked-color {
+  display: inline-block;
+  padding: 0.2em 0.6em;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: 700;
+  user-select: none;
+  min-width: 50px;
+  text-align: center;
+  /* gleiche Hintergrundfarbe wird dynamisch gesetzt */
+}
+.colorBar.boxes#image-color-scale {
+  flex-direction: column;
+  max-height: 400px;
+  overflow-y: auto;
+  display: flex;
+  margin-top: 0.5em;
+}
+.colorBar.boxes#image-color-scale .colorBox {
+  margin: 2px 0;
+  width: 100%;
+  height: 24px;
+  line-height: 24px;
+  font-size: 0.75rem;
+  text-align: center;
+  user-select: none;
+  color: #000;
+  text-shadow: 0 0 2px #fff;
+}
+
+/* Farb-Hover Indikator */
+#color-hover-indicator {
+  position: fixed;
+  pointer-events: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 5px rgba(0,0,0,0.6);
+  mix-blend-mode: normal;
+  transform: translate(-50%, -100%);
+  z-index: 10000;
+  transition: background-color 0.1s ease;
+  display: none;
+  opacity: 0.9;
+}
+
+/* Tabs Container und Layout */
+.tab1-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2em;
+  padding: 1em;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+/* Farbskala Linke Seite */
+.color-scale-left {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Farbpicker rechte Seite */
+.color-pickers-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  align-items: center;
+}

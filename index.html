@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Web Color Helper</title>
+    <link href="main.css" rel="stylesheet" />
+    <script src="iro.min.js"></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="page-header">
+      <h1>Web Color Helper</h1>
+    </header>
+    <main>
+      <div class="tabs">
+        <nav class="tab-nav">
+          <button class="tab-link active" data-tab="tab1">Farbskala</button>
+          <button class="tab-link" data-tab="tab2">Bild-Farbauswahl</button>
+        </nav>
+        <div class="tab-contents-container">
+          <section id="tab1" class="tab-content active">
+            <div class="tab1-container">
+              <div class="color-scale-left">
+                <h2>Farbskale - Schrittweise</h2>
+                <div class="colorBar boxes" aria-hidden="true"></div>
+                <h2>Farbskala - oklch gradient<br /><span id="oklchCode"></span></h2>
+                <div class="colorBar oklch" role="img" aria-label="OKLCH-Gradient preview"></div>
+                <h2>Farbskala - normal gradient<br /><span id="normalCode"></span></h2>
+                <div class="colorBar normal" role="img" aria-label="Standard-Gradient preview"></div>
+              </div>
+              <div class="color-pickers-right">
+                <div class="picker-container">
+                  <div id="startPicker"></div>
+                  <input type="text" id="inputStart" maxlength="7" placeholder="c3d051" title="Klicken zum Markieren" />
+                </div>
+                <div class="picker-container">
+                  <div id="endPicker"></div>
+                  <input type="text" id="inputEnd" maxlength="7" placeholder="002f53" title="Klicken zum Markieren" />
+                </div>
+                <div style="text-align:center; margin-top:1em;">
+                  <button id="sample">Erzeuge Farben</button>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section id="tab2" class="tab-content">
+            <div class="image-upload">
+              <label for="image-upload" class="upload-button">Upload</label>
+              <input type="file" id="image-upload" accept="image/*" hidden />
+              <div class="image-scaler-container">
+                <div class="image-container">
+                  <canvas id="image-canvas"></canvas>
+                  <div id="crosshair"></div>
+                </div>
+                <div class="color-info">
+                  <p>Aktuelle Mausfarbe: <span id="hover-color"></span></p>
+                  <p>Markierte Farbe: <span id="clicked-color"></span></p>
+                  <p>Bild Grundfarben:</p>
+                  <div id="avg-color-scale"></div>
+                  <button id="applyColorsBtn" style="display:none; margin-top: 1em;">Farben in Skale übernehmen</button>
+                  <p>Farbabstufungen</p>
+                  <div class="colorBar boxes" id="image-color-scale" aria-hidden="true"></div>
+                </div>
+              </div>
+            </div>
+            <div id="color-hover-indicator"></div>
+          </section>
+        </div>
+      </div>
+    </main>
+    <footer class="page-footer">
+      <p>© 2025 Web Color Helper - Made with ❤️ by Stefan Lehmann</p>
+    </footer>
+  </body>
+</html>
