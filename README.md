@@ -1,4 +1,4 @@
-# Farbskalen-Tool mit Bildfarb-Analyse
+# Web-Color-Helper
 
 Dieses Projekt bietet ein Web-Tool zur Erstellung von Farbverläufen und Analyse von Bildfarben.  
 Es enthält zwei Tabs:  
@@ -34,5 +34,6 @@ Beiträge und Vorschläge sind willkommen! Bitte Fork erstellen und Pull Request
 Dieses Projekt ist lizenziert unter der MIT-Lizenz. Details siehe LICENSE Datei.  
 
 ## Kontakt
+
 
 Bei Fragen melden Sie sich gerne via E-Mail oder Issues auf GitHub.
